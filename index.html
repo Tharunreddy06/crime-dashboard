@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crime Dashboard - Interactive Crime Map</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>Crime Dashboard - India Map</h1>
+
+  <!-- 🔵 FILTER BUTTONS -->
+  <div id="filterButtons">
+    <button onclick="filterMarkers('all')">Show All</button>
+    <button onclick="filterMarkers('green')">Solved &gt; 75%</button>
+    <button onclick="filterMarkers('yellow')">Solved 51%-75%</button>
+    <button onclick="filterMarkers('red')">Solved ≤ 50%</button>
+  </div>
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Chart Container -->
+  <div id="chart-container">
+    <canvas id="crimeChart" width="400" height="400"></canvas>
+  </div>
+
+  <!-- ✅ Scripts: JS libraries first, then your custom files -->
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- ✅ Your data file (assuming it's JSON wrapped in JS) -->
+  <!-- If city_wise_crime_summary.js exports a global variable, you don't need fetch() -->
+  <!-- Otherwise, use fetch() and ensure it's JSON format -->
+  <script src="data/city_wise_crime_summary.js"></script>
+
+  <!-- ✅ Your Custom JS (last, after libraries are loaded) -->
+  <script src="script.js"></script>
+</body>
+</html>
